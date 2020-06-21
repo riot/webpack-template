@@ -1,16 +1,14 @@
 import { register } from 'riot'
-import MyComponent from './components/global/my-component/my-component.riot'
-import Sidebar from './components/global/sidebar/sidebar.riot'
+import { basename } from 'path'
 
-// Rollup can not generate this object automatically via require.context :(
-const componentsRegistry = {
-  'my-component': MyComponent,
-  'sidebar': Sidebar
-}
+const globalComponentsContext = require.context('./components/global/', true, /[a-zA-Z0-9-]+\.riot/);
 
 export default () => {
-  Object.entries(componentsRegistry).map(([name, component]) => {
-    register(name, component)
+  globalComponentsContext.keys().map(path => {
+    const name = basename(path, '.riot')
+    const component = globalComponentsContext(path)
+
+    register(name, component.default)
 
     return {
       name,

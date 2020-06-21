@@ -10,6 +10,9 @@ module.exports = {
     filename: 'bundle.js'
   },
   devtool: 'inline',
+  devServer: {
+    open: true
+  },
   module: {
     rules: [
       {
