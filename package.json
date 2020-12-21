@@ -5,7 +5,7 @@
     "build": "webpack -c --mode production",
     "prepublishOnly": "npm test",
     "start": "webpack-dev-server --inline --watch --hot --colors -d --port 3000",
-    "test": "nyc --require esm --require jsdom-global/register --require ./test/register-riot-extension.js mocha src/**/*.spec.js"
+    "test": "nyc --require esm --require jsdom-global/register --require @riotjs/register mocha src/**/*.spec.js"
   },
   "devDependencies": {
     "@riotjs/compiler": "^5.0.0",
