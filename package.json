@@ -5,29 +5,30 @@
     "build": "webpack --mode production",
     "prepublishOnly": "npm test",
     "start": "webpack serve --mode development --hot --port 3000",
-    "test": "nyc --require esm --require jsdom-global/register --require @riotjs/register mocha src/**/*.spec.js"
+    "test": "NODE_OPTIONS=\"--loader @riotjs/register\" c8 mocha --require jsdom-global/register src/**/*.spec.js"
   },
+  "type": "module",
   "devDependencies": {
-    "@riotjs/compiler": "^6.3.2",
-    "@riotjs/register": "^6.0.1",
-    "@riotjs/webpack-loader": "^6.0.0",
-    "chai": "^4.3.6",
-    "css-loader": "^6.7.1",
-    "esm": "^3.2.25",
-    "html-webpack-plugin": "^5.5.0",
-    "jsdom": "^20.0.0",
+    "@riotjs/compiler": "^9.0.6",
+    "@riotjs/register": "^9.0.0",
+    "@riotjs/webpack-loader": "^9.0.1",
+    "c8": "^8.0.1",
+    "chai": "^4.3.10",
+    "css-loader": "^6.8.1",
+    "html-webpack-plugin": "^5.5.3",
+    "jsdom": "^23.0.1",
     "jsdom-global": "^3.0.2",
-    "mini-css-extract-plugin": "^2.6.1",
-    "mocha": "^8.4.0",
-    "nyc": "^15.1.0",
-    "webpack": "^5.74.0",
-    "webpack-cli": "^4.10.0",
-    "webpack-dev-server": "^4.10.0"
+    "mini-css-extract-plugin": "^2.7.6",
+    "mocha": "^10.2.0",
+    "prettier": "^3.1.0",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
   },
   "dependencies": {
-    "@riotjs/hot-reload": "^6.0.1",
-    "@riotjs/lazy": "^2.0.2",
-    "@riotjs/route": "^8.0.2",
-    "riot": "^7.0.3"
+    "@riotjs/hot-reload": "^9.0.1",
+    "@riotjs/lazy": "^9.0.0",
+    "@riotjs/route": "^9.1.2",
+    "riot": "^9.1.1"
   }
 }
